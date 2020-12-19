@@ -6,6 +6,7 @@ shell type: ```echo $SHELL```
 directory tree: ```mkdir -p dir1/dir2/dir3```  
 remove directory tree: ```rm -r dir1/dir2/dir3```  
 copy tree: ```cp -r dir1/dir2/dir3 dirA/dirB/dirC```  
+find file: ``find . -name "foo*"`` 
 
 ## Vi editor
 

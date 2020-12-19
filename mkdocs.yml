@@ -1,3 +1,20 @@
 site_name: My Docs
 
-theme: readthedocs
+repo_url: https://github.com/rytligc/docs.git
+
+theme: material
+features:
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+
+plugins:
+  - search
+
+markdown_extensions:
+  - pymdownx.highlight:
+  - pymdownx.superfences:
+  - pymdownx.highlight:
+      linenums: true
+
+  
