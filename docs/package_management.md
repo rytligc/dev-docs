@@ -27,6 +27,7 @@ install specific version: ``yum install -y packageName-versionNumber``
 remove package: ``yum remove packageName``  
 
 ## Services
+
 Services in Linux helps configure software to run in the background and make sure that they run all the time automatically when the servers are booted, and in the right order! Services should start in the right order, especially if there are multiple services which are dependant on each other.  
 
 **HTTPD will be used as example of a service name**  
@@ -34,7 +35,7 @@ start HTTPD service: ``systemctl start httpd || service httpd start``
 stop running service: ``systemctl stop httpd``  
 status of service: ``systemctl status httpd``  
 configure HTTPD to start/stop at startup: ``systemctl enable/disable httpd``  
- 
+  
 ### Example of a python webapp running
 
 ```bash
@@ -47,11 +48,13 @@ configure HTTPD to start/stop at startup: ``systemctl enable/disable httpd``
 # curl to see if the service is running
 curl http://localhost:5000
 ```
+
 Using ``systemctl`` we can start/stop/status the service.  
 start app: ``systemctl start my_app``  
 stop app: ``systemctl stop my app``  
 
 #### Configuring application to start on boot or restart if crashing
+
 systemctl is used to manage ``systemd`` services. So we must configure the program as a systemd service.  
 Systemd unit files are most likely located at ``/etc/systemd/system``  
 The file for the program must be named what the program is eventually to be called. For example:  
