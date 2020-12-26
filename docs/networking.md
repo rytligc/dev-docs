@@ -128,7 +128,7 @@ ping apps
 |AAAA|ipv6|web-server|--|2001:0db8:85a3:0000:0000:8a2e:0370:7734|
 |CNAME|Map of an alias|food.web-server|eat.web-server.com, hungry.web-server.com|
 
-### Ping / nslookup  
+### Ping / nslookup / dig
 
 Ping may not always be the best way to check whether an ip is resolved. Nslookup can be beneficial because it provides additional information rather than just checking connectivity. **Nslookup does not look in the ``/etc/hosts`` file**
 
@@ -142,3 +142,26 @@ nslookup www.google.com
 >> Name:	        google.com
 >> Address:      142.250.74.46
 ```
+
+If we want even further details we can use ``dig``.  
+
+```bash
+dig www.google.com
+
+>> ; <<>> DiG 9.10.6 <<>> google.com
+>> ;; global options: +cmd
+>> ;; Got answer:
+>> ;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 29436
+>> ;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
+>> ;; OPT PSEUDOSECTION:
+>> ; EDNS: version: 0, flags:; udp: 512
+>> ;; QUESTION SECTION:
+>> ;google.com.			IN	A
+>> ;; ANSWER SECTION:
+>> google.com.		217	IN	A	216.58.211.14
+>> ;; Query time: 30 msec
+>> ;; SERVER: 8.8.8.8#53(8.8.8.8)
+>> ;; WHEN: Sat Dec 26 09:47:27 CET 2020
+>> ;; MSG SIZE  rcvd: 55
+```
+
