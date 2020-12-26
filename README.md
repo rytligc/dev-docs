@@ -9,13 +9,13 @@ Directory structure is as follows:
 ├── README.md
 ├── docs
 │   ├── bash_cheatsheet.md
-│   ├── imgs
-│   │   ├── gateway_routing.PNG
-│   │   ├── multiple_network_routing.png
-│   │   └── yum.png
 │   ├── index.md
 │   ├── linux_basics.md
 │   ├── networking.md
 │   └── package_management.md
+│   ├── imgs
+│   │   ├── gateway_routing.PNG
+│   │   ├── multiple_network_routing.png
+│   │   └── yum.png
 └── mkdocs.yml
 ```
