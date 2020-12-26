@@ -14,8 +14,8 @@ Directory structure is as follows:
 │   ├── networking.md
 │   ├── package_management.md
 │   └── imgs
-│   │   ├── gateway_routing.PNG
-│   │   ├── multiple_network_routing.png
-│   │   └── yum.png
+│       ├── gateway_routing.PNG
+│       ├── multiple_network_routing.png
+│       └── yum.png
 └── mkdocs.yml
 ```
