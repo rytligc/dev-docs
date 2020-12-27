@@ -1,4 +1,4 @@
-# Bash Cheat Sheet; the basics
+# Bash Cheat Sheet
 
 ```bash
 ! /bin/bash
