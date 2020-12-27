@@ -8,9 +8,13 @@ Directory structure is as follows:
 .
 ├── docs
 |  ├── application-code-basics
+|  |  ├── Apache-web-server.md
 |  |  ├── java.md
 |  |  └── nodejs.md
+|  ├── docker
+|  |  └── docker_commands.md
 |  ├── imgs
+|  |  ├── apache_multiple_sites.png
 |  |  ├── gateway_routing.png
 |  |  ├── multiple_network_routing.png
 |  |  └── yum.png
