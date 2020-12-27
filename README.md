@@ -6,16 +6,20 @@ Directory structure is as follows:
 
 ```bash
 .
-├── README.md
 ├── docs
-│   ├── bash_cheatsheet.md
-│   ├── index.md
-│   ├── linux_basics.md
-│   ├── networking.md
-│   ├── package_management.md
-│   └── imgs
-│       ├── gateway_routing.PNG
-│       ├── multiple_network_routing.png
-│       └── yum.png
-└── mkdocs.yml
+|  ├── application-code-basics
+|  |  ├── java.md
+|  |  └── nodejs.md
+|  ├── imgs
+|  |  ├── gateway_routing.png
+|  |  ├── multiple_network_routing.png
+|  |  └── yum.png
+|  ├── index.md
+|  └── linux-and-bash
+|     ├── bash_cheatsheet.md
+|     ├── linux_basics.md
+|     ├── networking.md
+|     └── package_management.md
+├── mkdocs.yml
+└── README.md
 ```

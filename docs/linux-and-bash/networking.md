@@ -34,7 +34,7 @@ sudo ip route add 172.16.238.0/24 via 172.16.239.10
 
 A switch connects devices within the same network. E.g. 192.168.**1**.0 or 192.168.**2**.0 as shown below
 
-![gateway](imgs/gateway_routing.PNG)
+![gateway](imgs/gateway_routing.png)
 
 The router connects the two switches, i.e. 192.168.1.1 & 192.168.2.1.
 
