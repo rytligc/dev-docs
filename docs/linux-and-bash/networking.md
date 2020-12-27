@@ -34,7 +34,7 @@ sudo ip route add 172.16.238.0/24 via 172.16.239.10
 
 A switch connects devices within the same network. E.g. 192.168.**1**.0 or 192.168.**2**.0 as shown below
 
-![gateway](imgs/gateway_routing.png)
+![gateway](../imgs/gateway_routing.png)
 
 The router connects the two switches, i.e. 192.168.1.1 & 192.168.2.1.
 
@@ -56,7 +56,7 @@ But because we do not know ALL the ip addresses of all hosts, we can set up the 
 
 However, if we both have an internal network as well as "public" network then we'd need to set that up.
 
-![multi-network](imgs/multiple_network_routing.png)
+![multi-network](../imgs/multiple_network_routing.png)
 
 To make ensure that routing works correctly, use ``ping {ipaddress}``. But on linux it has to be specified in a particular folder.  
 

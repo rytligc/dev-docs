@@ -12,7 +12,7 @@ query specific: ``rpm -qa | grep packageName``
 Package managers does not install dependencies by themselves. For example, Anisble requires Python to be installed. This is why ``Yum`` exists....  
 Yum is an abstraction layer on RPM, so it uses RPM underneath but with additions to install ALL required packages.  
 
-![yum](imgs/yum.png)  
+![yum](../imgs/yum.png)  
 
 ### Yum commands  
 
