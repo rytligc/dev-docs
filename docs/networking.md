@@ -48,7 +48,7 @@ This only configures the two networks to talk to each other. If we also want to 
 
 ```bash
 ip route add 192.168.2.0/24 via 192.168.1.1
-ip route add 192.168.1.0/24 via 192.168.1.1
+ip route add 192.168.1.0/24 via 192.168.2.1
 ip route add 172.217.194.0/24 via 192.168.2.1
 ```
 But because we do not know ALL the ip addresses of all hosts, we can set up the router to go via a default routing. ``ip route add default via 192.168.2.1``. It's basically the same as ``0.0.0.0``.  
