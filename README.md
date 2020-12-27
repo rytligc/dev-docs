@@ -5,12 +5,17 @@ The directories are structured to serve for Mkdocs.
 Directory structure is as follows:  
 
 ```bash
+.
 ├── README.md
 ├── docs
-│   ├── imgs
-│   │   └── yum.png
+│   ├── bash_cheatsheet.md
 │   ├── index.md
 │   ├── linux_basics.md
-│   └── package_management.md
+│   ├── networking.md
+│   ├── package_management.md
+│   └── imgs
+│       ├── gateway_routing.PNG
+│       ├── multiple_network_routing.png
+│       └── yum.png
 └── mkdocs.yml
 ```

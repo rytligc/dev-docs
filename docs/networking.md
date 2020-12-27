@@ -1,4 +1,5 @@
 # Networking
+
 Basic networking concepts..
 
 ## Ip Key Commands
@@ -33,7 +34,7 @@ sudo ip route add 172.16.238.0/24 via 172.16.239.10
 
 A switch connects devices within the same network. E.g. 192.168.**1**.0 or 192.168.**2**.0 as shown below
 
-![gateway](imgs/gateway_routing.png)
+![gateway](imgs/gateway_routing.PNG)
 
 The router connects the two switches, i.e. 192.168.1.1 & 192.168.2.1.
 
@@ -71,3 +72,96 @@ echo 1 > proc/sys/net/ipv4/ip_forward
 /etc/sysctl.conf
 net.ipv4.ip_forward = #input number 
 ```
+
+## DNS (Domain Name System)
+
+Association of information with domain names assigned to entities.  
+
+```bash
+# Name resolution
+
+# Host association can be found in
+/etc/hosts
+# For example
+>> 192.168.1.1    db
+>> 172.168.2.3    dev.rancher
+```
+
+However, this approach is cumbersome if there are hundreds or thousands of servers that need to be rerouted. Therefore a central server to solve this issue evolved, the DNS server. Servers then look at the DNS server instead of each hosts own 'hosts' file.  
+
+DNS configuration can be found at ``/etc/resolv.conf``.  
+Example..
+
+```bash
+cat /etc/resolv.conf
+>> nameserver    192.168.1.100
+```
+
+This does not mean that we can't both have entries in the ``/etc/hosts`` file AND in the ``/etc/resolv.conf`` files. For example, if we have a test server that doesn't need to be resolved for others, then adding it to ``/etc/hosts`` would suffice.  
+To prioritize between the two, we can go to ``/etc/nsswitch.conf``.  
+
+For internal servers, say we have multiple subdomains like Google has; apps.google.com, drive.google.com etc. We can specify in our ``/etc/resolv.conf`` file that we should search within a domain, e.g. Google, for a subdomain, e.g. apps.  
+
+```bash
+cat /etc/resolv.conf
+# resolv.conf
+>> nameserver    192.168.1.100
+# Adding the search, will allow the DNS to search within a domain for a subdomain.
+>> search        google.com  
+
+# terminal
+ping apps
+>> ping apps.google.com {ipAddress} 56(84) bytes of data.
+
+# Multiple domains can also be searched for
+# resolv.conf
+>> nameserver    192.168.1.100
+# Adding the search, will allow the DNS to search within a domain for a subdomain.
+>> search        google.com  prod.google.com
+```
+
+### Record Types
+
+|Name|Type|example|ip example|
+|--|--|--|--|
+|A|ipv4|web-server|192.168.1.1|
+|AAAA|ipv6|web-server|--|2001:0db8:85a3:0000:0000:8a2e:0370:7734|
+|CNAME|Map of an alias|food.web-server|eat.web-server.com, hungry.web-server.com|
+
+### Ping / nslookup / dig
+
+Ping may not always be the best way to check whether an ip is resolved. Nslookup can be beneficial because it provides additional information rather than just checking connectivity. **Nslookup does not look in the ``/etc/hosts`` file**
+
+```bash
+nslookup www.google.com
+
+>> Server:		8.8.8.8
+>> Address:	    8.8.8.8#53
+
+>> Non-authoritative answer:
+>> Name:	        google.com
+>> Address:      142.250.74.46
+```
+
+If we want even further details we can use ``dig``.  
+
+```bash
+dig www.google.com
+
+>> ; <<>> DiG 9.10.6 <<>> google.com
+>> ;; global options: +cmd
+>> ;; Got answer:
+>> ;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 29436
+>> ;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
+>> ;; OPT PSEUDOSECTION:
+>> ; EDNS: version: 0, flags:; udp: 512
+>> ;; QUESTION SECTION:
+>> ;google.com.			IN	A
+>> ;; ANSWER SECTION:
+>> google.com.		217	IN	A	216.58.211.14
+>> ;; Query time: 30 msec
+>> ;; SERVER: 8.8.8.8#53(8.8.8.8)
+>> ;; WHEN: Sat Dec 26 09:47:27 CET 2020
+>> ;; MSG SIZE  rcvd: 55
+```
+
