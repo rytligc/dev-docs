@@ -1,6 +1,6 @@
 # Networking
 
-Basic networking concepts..
+Basic networking concepts...
 
 ## Ip Key Commands
 
