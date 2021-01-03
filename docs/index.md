@@ -15,3 +15,55 @@ For full documentation visit [mkdocs.org](https://www.mkdocs.org).
     docs/
         index.md  # The documentation homepage.
         ...       # Other markdown pages, images and other files.
+
+## Extensions
+
+### Tabs
+
+    ```c
+
+    "=== "C"
+
+        ``` c
+        #include <stdio.h>
+
+        int main(void) {
+          printf("Hello world!\n");
+          return 0;
+        }
+        ```
+
+    === "C++"
+
+    ``` c++
+    #include <iostream>
+
+    int main(void) {
+      std::cout << "Hello world!" << std::endl;
+      return 0;
+    }
+    ```
+
+### Result
+
+=== "C"
+
+    ```c
+    #include <stdio.h>
+
+    int main(void) {
+      printf("Hello world!\n");
+      return 0;
+    }
+    ```
+
+=== "C++"
+
+    ```c++
+    #include <iostream>
+
+    int main(void) {
+      std::cout << "Hello world!" << std::endl;
+      return 0;
+    }
+    ```

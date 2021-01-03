@@ -15,9 +15,11 @@ plugins:
   - search
 
 markdown_extensions:
-  - pymdownx.highlight:
-  - pymdownx.superfences:
+  - codehilite
+  - pymdownx.inlinehilite
   - pymdownx.highlight:
       linenums: true
+  - pymdownx.superfences
+  - pymdownx.tabbed
 
   
