@@ -1,9 +1,11 @@
 version: '3'
 services: 
   web:
-    image: static-nginx
+    image: coursedocs
+    #image: static-nginx
     build: .
-    container_name: static-nginx
+    container_name: coursedocs
+    #container_name: static-nginx
     restart: always
     ports: 
       - 8080:80

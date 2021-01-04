@@ -1,19 +1,23 @@
-FROM nginx
+FROM python:3.8-slim-buster AS BUILDER
 
 RUN mkdir -p /var/log/nginx && touch /var/log/nginx/access.log && \
-    mkdir /mkdocs && \
-    apt-get update && apt-get install -y \
-        python3 \
-        python3-dev \
-        python3-pip && \
-    pip3 install mkdocs && \
-    pip3 install mkdocs-material && \
-    pip3 install mkdocs-monorepo-plugin && \
-    pip3 install mkdocs-multirepo
-    
+    mkdir /mkdocs
+
 WORKDIR /mkdocs
 
-COPY /nginx.conf /etc/nginx/conf.d/default.conf
-COPY /mkdocs.yml /mkdocs
+RUN apt-get update && apt-get install -y \
+        git && \
+    pip3 install \
+        mkdocs-material \
+        mkdocs-monorepo-plugin
+
 COPY /docs /mkdocs/docs
-RUN mkdocs build && mv site/ /www
+COPY /mkdocs.yml /mkdocs
+
+RUN mkdocs build
+
+########################
+FROM nginx
+
+COPY /nginx.conf /etc/nginx/conf.d/default.conf
+COPY --from=BUILDER /mkdocs/site/ /www
