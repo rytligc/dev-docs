@@ -1,5 +1,8 @@
 # Apache Web Server
 
+Open source http server. It's a webserver usually used to serve HTML, CSS & JS. However, it is also often used in conjunction with an application server. Webservers usually serves static sites whereas application servers serve dynamic sites, to process logic and transactions.  
+
+In CentOS apache is already included.  
 In CentOS Apache is already available as a web server.  
 
 ```bash
@@ -71,4 +74,4 @@ http://localhost:80
 
 # Since it's http, port number is not needed.
 http://localhost
-```
+```  
