@@ -8,7 +8,6 @@ theme:
   features:
       - navigation.tabs.sticky
       - navigation.instant
-      - navigation.expand
       - header.autohide
       
 plugins:
