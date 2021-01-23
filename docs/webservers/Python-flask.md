@@ -1,7 +1,7 @@
 # Python Flask Web App
 
-
 ## Project setup
+
 Project structure may look as follows:
 
 ```bash
@@ -98,7 +98,3 @@ gunicorn main:app -w 2
     # command that tells the Linux system not to stop 
     # another command once it has started.
     ```
-
-
-
-
