@@ -125,7 +125,7 @@ if __name__ == "__main__":
 
 ### Exercise 3
 
-*In app01 server ensure that our app in /opt/simple-webapp-flask/ run on port 5000 and listen to 127.0.0.1 IP.* 
+*In app01 server ensure that our app in /opt/simple-webapp-flask/ run on port 5000 and listen to 127.0.0.1 IP.*
 
 *Run python app in background with nohup*
 
