@@ -1,7 +1,8 @@
-# Welcome to Claes' Docs!
+# Welcome to Claes' Docs
 
 ## Mkdocs
-For full documentation of Mkdocsvisit [mkdocs.org](https://www.mkdocs.org).
+
+For full documentation of Mkdocs visit [mkdocs.org](https://www.mkdocs.org).
 
 ### Commands
 

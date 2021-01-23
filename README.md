@@ -7,8 +7,10 @@ Directory structure is as follows:
 ```bash
 .
 ├── docs
+|  ├── index.md
+|  ├── ansible
+|  |  └── introduction.md
 |  ├── application-code-basics
-|  |  ├── Apache-web-server.md
 |  |  ├── java.md
 |  |  └── nodejs.md
 |  ├── docker
@@ -16,14 +18,27 @@ Directory structure is as follows:
 |  ├── imgs
 |  |  ├── apache_multiple_sites.png
 |  |  ├── gateway_routing.png
+|  |  ├── multiple_ip_addresses_single_device.png
 |  |  ├── multiple_network_routing.png
+|  |  ├── package-json-environment-scripts.png
+|  |  ├── tomcat-bin-dir.png
+|  |  ├── tomcat-conf-dir.png
 |  |  └── yum.png
-|  ├── index.md
-|  └── linux-and-bash
-|     ├── bash_cheatsheet.md
-|     ├── linux_basics.md
-|     ├── networking.md
-|     └── package_management.md
+|  ├── linux-and-bash
+|  |  ├── bash_cheatsheet.md
+|  |  ├── linux_basics.md
+|  |  ├── networking.md
+|  |  ├── package_management.md
+|  |  └── shell_scripts
+|  └── webservers
+|     ├── Apache-tomcat.md
+|     ├── Apache-web-server.md
+|     ├── IPs_and_ports.md
+|     ├── NodeJS.md
+|     └── Python-flask.md
+├── docker-compose.yml
+├── Dockerfile
 ├── mkdocs.yml
+├── nginx.conf
 └── README.md
 ```
