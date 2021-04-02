@@ -1,8 +1,13 @@
-# Interfaces in C#
+# Interfaces in C\#
 
 Interfaces are groups of definitions for related functionalities that a (non-abstract) class or struct must implement.
 
-All interfaces are typed as follows, starting by convention with a capital `I`
+ Interfaces specify what a Class MUST have. It does not need to specify what a class MUST NOT have. The interface can't specify
+
+* Constructors
+* Fields
+
+All interfaces are typed as follows, starting by convention with a capital `I`.
 
 ```C#
 interface ISomeInterface 
