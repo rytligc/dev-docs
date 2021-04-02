@@ -56,3 +56,4 @@ namespace LearnInterfaces
 
 In the interface, the methods and public variables are only declared, not initialized with any values. See the "honk" method. It's only declared like `void Honk();` and does not contain a body. The body is defined in the Sedan Class as the Class of the Sedan defines the kind of sound the honk should sound like.
 
+For more information see [Microsoft's docs](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/interfaces/)
