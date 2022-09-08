@@ -19,6 +19,8 @@ markdown_extensions:
   - pymdownx.highlight:
       linenums: true
   - pymdownx.superfences
-  - pymdownx.tabbed
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.betterem
 
   

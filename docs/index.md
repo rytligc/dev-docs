@@ -62,3 +62,32 @@ For full documentation of Mkdocs visit [mkdocs.org](https://www.mkdocs.org).
       return 0;
     }
     ```
+
+## InlineHilite
+
+Here is some code: `#!py3 import pymdownx; pymdownx.__version__`.
+```
+`#!py3 import pymdownx; pymdownx.__version__`.
+```
+
+The mock shebang will be treated like text here: ` #!js var test = 0; `.
+
+
+=== "Tab 1"
+    Markdown **content**.
+
+    Multiple paragraphs.
+
+=== "Tab 2"
+    More Markdown **content**.
+
+    - list item a
+    - list item b
+
+===! "Tab A"
+    Different tab set.
+
+=== "Tab B"
+    ```
+    More content.
+    ```
