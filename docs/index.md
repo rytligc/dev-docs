@@ -1,4 +1,4 @@
-# Welcome to Claes' Docs
+# Welcome to my docs
 
 ## Mkdocs
 
