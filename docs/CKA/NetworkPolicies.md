@@ -53,3 +53,63 @@ spec:
   - name: api
     image: customApiImage:latest
 ```
+
+Create a network policy to allow traffic from the `Internal` application only to the `payroll-service` and `db-service`.
+
+
+- Policy Name: internal-policy
+- Policy Type: Egress
+- Egress Allow: payroll
+- Payroll Port: 8080
+- Egress Allow: mysql
+- MySQL Port: 3306
+
+```yml
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: internal-policy
+  namespace: default
+spec:
+  podSelector:
+    matchLabels:
+      name: internal
+  policyTypes:
+  - Egress
+  - Ingress
+  ingress:
+    - {}
+  egress:
+  - to:
+    - podSelector:
+        matchLabels:
+          name: mysql
+    ports:
+    - protocol: TCP
+      port: 3306
+
+  - to:
+    - podSelector:
+        matchLabels:
+          name: payroll
+    ports:
+    - protocol: TCP
+      port: 8080
+
+  - ports:
+    - port: 53
+      protocol: UDP
+    - port: 53
+      protocol: TCP
+```
+
+Egress traffic has also been allowed to TCP and UDP. This has been added to ensure that the internal DNS resolution works from the internal pod.  
+
+Remember: The kube-dns service is exposed on port 53.
+
+```bash
+root@controlplane ~ ➜  kubectl get svc -n kube-system 
+
+NAME       TYPE        CLUSTER-IP   EXTERNAL-IP   PORT(S)                  AGE
+kube-dns   ClusterIP   10.96.0.10   <none>        53/UDP,53/TCP,9153/TCP   47m
+```
