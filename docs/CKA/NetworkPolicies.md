@@ -26,7 +26,7 @@ metadata:
 spec:
   podSelector:
     matchLabels:
-      # This is the D:
+      # This is the DB
       role: db
   policyTypes:
   - Ingress
