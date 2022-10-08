@@ -68,11 +68,6 @@ gunicorn main:app -w 2
 1. "Change description in app.py."
 
     ```bash
-    # my solution
-    # edit the file in vi
-    sudo vi app.py
-
-    # their solution
     sudo sed -i 's/8080/5000/g' app.py
     ```
 
@@ -86,10 +81,6 @@ gunicorn main:app -w 2
 3. "Run Gunicorn with 3 workers in background and confirm with url"
 
     ```bash
-    # my solution
-    gunicorn app:app -w 3
-
-    # their solution
     nohup gunicorn app:app -w 3 & and curl localhost:8000
 
     # notes on nohup  

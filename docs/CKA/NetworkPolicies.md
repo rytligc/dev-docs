@@ -1,6 +1,5 @@
 # Network Policies
 
-
 Standard image of network traffic highlighting `ingress` and `egress`.
 
 ![img](https://github.com/kodekloudhub/certified-kubernetes-administrator-course/raw/master/images/ing1.PNG)

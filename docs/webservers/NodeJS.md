@@ -48,12 +48,11 @@ npm can then be used to run a specific script in the file.
 
 `npm run start` to run the `start` script.
 
-The start script has teh environment variable set to production. We could also run
+The start script has the environment variable set to production. We could also run
 
 `npm run start:dev` to start the development environment.
 
-
-When it is run, the webserver is listening on localhost `http://localhost:3000/` (port 3000 as specified in app.js).
+When it is run, the webserver is listening on localhost `http://localhost:3000/`.
 
 ## Tools for running in production
 
@@ -86,77 +85,4 @@ pm2 monitor
 
 #Make pm2 auto-boot at server restart:
 pm2 startup
-```
-
-## Labs
-
-1. "We have installed node for you . Install dependencies with npm and run app.js in /opt/the-example-app.nodejs/ directory with node and observe output if any"
-
-```bash
-sudo npm install
-# start is part of the scripts in package.json
-sudo npm run start 
-
->example-contentful-theExampleApp-js@0.0.0 start /opt/the-example-app.nodejs
->NODE_ENV=production node ./bin/www
->Listening on http://localhost:3000
-
-# Their solution (mine worked though)
-sudo npm install
-node app.js
-```
-
-2. "Run app in start:dev mode and observe the webpage in Browser"
-
-```bash
-npm run start:dev
-```
-
-3. "Now stop previous app and Run app in start:production mode and observe the webpage in Browser"
-
-```bash
-npm run start:production
-```
-
-4. "Now please install pm2 with npm"
-
-```bash
-# my solution
-npm install pm2
-
-# their solution
-sudo npm install pm2@latest -g
-```
-
-5. "Run app with pm2 and observe the output in console"
-
-```bash
-sudo pm2 start app.js
-```
-
-6. "How many forks launched by previous step pm2 execution?"
-
-```bash
-# Output from the terminal
->[PM2] Spawning PM2 daemon with pm2_home=/root/.pm2
->[PM2] PM2 Successfully daemonized
->[PM2] Starting /opt/the-example-app.nodejs/app.js in fork_mode (1 instance)
->[PM2] Done.
-
-# my answer 1 (correct)
-```
-
-7. "Run app with pm2 but with 4 forks. Observe the output in console. The pm2 process is already running in previous step so stop that process and run with new options"
-
-```bash
-# Stop the app (didn't work)
-sudo pm2 stop app.js
-
-# Start with 4 instances
-sudo pm2 start app.js -i 4
-
-# Their solution
-pm2 delete app.js # to delete pm2 form
-pm2 start app.js -i 4
-
 ```
