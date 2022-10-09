@@ -139,3 +139,101 @@ spec:
       persistentVolumeClaim:
         claimName: pv-vol1
 ```
+
+## Storage classes
+
+To use external storage - i.e. Azure or GCP, we can either make static provisioning
+or we can use dynamic provisioning.
+
+Static requires to have volumes/disks premade before attaching,
+where as dynamic provisioning can create volumes/disks on-the-fly.
+
+### Static provisioning
+
+A static provisioning would require two steps.
+
+- 1) Create disk
+
+```bash
+# GCP
+gcloud beta compute disks create --size 1GB --region westeurope pd-disk
+```
+
+- 2) Create Persistent volume file
+
+```yml
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: pv-vol
+spec:
+  accessModes:
+    - ReadWriteOnce
+  capacity:
+    storage: 500Mi
+  # type of disk GCP persistent disk in this case
+  gciPersistentDisk:
+    pdName: pd-disk # same name as was used with the CLI
+    fsType: ext4
+```
+
+### Dynamic provisioning
+
+When using dynamic provisioning, we use `StorageClass` as kind instead of PV. There is still
+created a PV, we just don't have to manage it manually anymore.
+
+```yml
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: google-storage
+provisioner: kubernetes.io/gce-pd
+```
+
+To bind it all together, `StorageClass`, `PersistentVolumeClaim` and `Pod`, the above example
+might look like the following:
+
+```yml
+# Pod definition
+apiVersion: v1
+kind: Pod
+metadata:
+  name: random
+spec:
+  containers:
+  - image: alpine
+    name: alpine
+    command: ["/bin/sh", "-c"]
+    args: ["shuf -i 0-100 -n 1"]
+    volumeMounts:
+    - mountPath: /opt
+      name: data-volume
+  volumes:
+  - name: data-volume
+    persistentVolumeClaim:
+      # Same name as defined below
+      claimName: gcpClaim
+---
+# PVC
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  # Same name as claimed above
+  name: gcpClaim
+spec:
+  # Always check that access mode is matching PV
+  accessModes: [ "ReadWriteOnce" ]
+  # Same name as specified in the storage class
+  storageClassName: google-storage
+  resources:
+   requests:
+     storage: 1Gi
+---
+# Storage Class
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  # Same name as specified in the PVC
+  name: google-storage
+provisioner: kubernetes.io/gce-pd
+```
