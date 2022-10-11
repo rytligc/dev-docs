@@ -4,11 +4,11 @@ Basic networking concepts...
 
 ## Ip Key Commands
 
-list and modify interfaces on the host:  ``iplink``  
-list assigned ip addresses to the interfaces: ``ip addr``  
-set ip addresses on the interfaces: ``ip addr add 192.168.1.10/24 dev eth0`` (does not persist reboot, see above example for that)  
-view routing table: ``route`` or ``ip route``  
-add entries to the routing table: ``ip route add 192.168.1.0/24 via 192.168.2.1``  
+- list and modify interfaces on the host:  `iplink`  
+- list assigned ip addresses to the interfaces: `ip addr`  
+- set ip addresses on the interfaces: `ip addr add 192.168.1.10/24 dev eth0` (does not persist reboot, see above example for that)  
+- view routing table: `route` or `ip route`  
+- add entries to the routing table: `ip route add 192.168.1.0/24 via 192.168.2.1`  
 
 ### *From labs*
 
@@ -45,6 +45,7 @@ This configuration has to be made on all the systems, meaning it's not enough to
 ip route add 192.168.2.0/24 via 192.168.1.1
 ip route add 192.168.1.0/24 via 192.168.1.1
 ```
+
 This only configures the two networks to talk to each other. If we also want to connect to the internet, say for example Google. We'd need to add that to the routing.
 
 ```bash
@@ -52,6 +53,7 @@ ip route add 192.168.2.0/24 via 192.168.1.1
 ip route add 192.168.1.0/24 via 192.168.2.1
 ip route add 172.217.194.0/24 via 192.168.2.1
 ```
+
 But because we do not know ALL the ip addresses of all hosts, we can set up the router to go via a default routing. ``ip route add default via 192.168.2.1``. It's basically the same as ``0.0.0.0``.  
 
 However, if we both have an internal network as well as "public" network then we'd need to set that up.
@@ -135,12 +137,12 @@ Ping may not always be the best way to check whether an ip is resolved. Nslookup
 ```bash
 nslookup www.google.com
 
->> Server:		8.8.8.8
->> Address:	    8.8.8.8#53
+>> Server:   8.8.8.8
+>> Address:  8.8.8.8#53
 
 >> Non-authoritative answer:
->> Name:	        google.com
->> Address:      142.250.74.46
+>> Name:    google.com
+>> Address: 142.250.74.46
 ```
 
 If we want even further details we can use ``dig``.  
@@ -156,12 +158,11 @@ dig www.google.com
 >> ;; OPT PSEUDOSECTION:
 >> ; EDNS: version: 0, flags:; udp: 512
 >> ;; QUESTION SECTION:
->> ;google.com.			IN	A
+>> ;google.com.  IN	A
 >> ;; ANSWER SECTION:
->> google.com.		217	IN	A	216.58.211.14
+>> google.com.   217	IN	A	216.58.211.14
 >> ;; Query time: 30 msec
 >> ;; SERVER: 8.8.8.8#53(8.8.8.8)
 >> ;; WHEN: Sat Dec 26 09:47:27 CET 2020
 >> ;; MSG SIZE  rcvd: 55
 ```
-
