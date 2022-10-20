@@ -57,6 +57,7 @@ on the default port.
 - `arp`
 - `netstat -plnt`
 - `route`
+- `ip r`
 
 ### CNI installation in the exam
 

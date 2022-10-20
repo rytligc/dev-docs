@@ -78,3 +78,11 @@ and figuring out the `kind` and `shortnames`
 # List resource types
 kubectl api-resources
 ```
+
+### Create Ingress
+
+```bash
+kubectl create ingress <ingress-name> --rule="host/path=service:port"
+
+kubectl create ingress ingress-test --rule="wear.my-online-store.com/wear*=wear-service:80"
+```
