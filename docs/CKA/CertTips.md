@@ -27,6 +27,23 @@ that everything is working as expected.
 To speed up commands, run commands imperatively
 by using `kubectl run` instead of creating yaml files.
 
+### Use help menu
+
+A lot of the commands and boilerplate are available through the help menus.
+For example on ingress:
+
+```bash
+kubectl create ingress -h
+# >> Create an ingress with the specified name.
+#
+# >> Aliases:
+# >> ingress, ing
+# >> Examples:
+# Create a single ingress called 'simple' that directs requests to foo.com/bar to svc
+# svc1:8080 with a tls secret "my-cert"
+kubectl create ingress simple --rule="foo.com/bar=svc1:8080,tls=my-cert"
+```
+
 ### Create pods
 
 ```bash
@@ -85,4 +102,18 @@ kubectl api-resources
 kubectl create ingress <ingress-name> --rule="host/path=service:port"
 
 kubectl create ingress ingress-test --rule="wear.my-online-store.com/wear*=wear-service:80"
+```
+
+### Exec in pods
+
+Exec without SSHing into the pod
+
+```bash
+kubectl exec -it <pod> -- <commands>
+```
+
+Exec with bash
+
+```bash
+kubectl exec --stdin --tty <pod> -- /bin/bash
 ```
