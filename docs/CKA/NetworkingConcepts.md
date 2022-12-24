@@ -39,7 +39,7 @@ etcd cluster externally or on custom ports.
 † Default port range for [NodePort Services](/docs/concepts/services-networking/service/).
 
 All default port numbers can be overridden. When custom ports are used those
-ports need to be open instead of defaults mentioned here.  
+ports need to be open instead of defaults mentioned here.
 
 One common example is API server port that is sometimes switched
 to 443. Alternatively, the default port is kept as is and API server is put
